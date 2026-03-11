@@ -1,0 +1,42 @@
+receivers:
+  gpu:
+    collection_interval: 10s
+    metrics:
+      gpu.utilization:
+        enabled: true
+      gpu.memory.used:
+        enabled: true
+      gpu.memory.total:
+        enabled: true
+      gpu.temperature:
+        enabled: true
+      gpu.power.draw:
+        enabled: true
+      gpu.power.limit:
+        enabled: true
+      gpu.clock.sm:
+        enabled: true
+      gpu.clock.memory:
+        enabled: true
+      gpu.encoder.utilization:
+        enabled: false
+      gpu.decoder.utilization:
+        enabled: false
+      gpu.pcie.throughput.tx:
+        enabled: false
+      gpu.pcie.throughput.rx:
+        enabled: false
+      gpu.ecc.errors:
+        enabled: false
+
+exporters:
+  otlp:
+    endpoint: "localhost:4317"
+    tls:
+      insecure: true
+
+service:
+  pipelines:
+    metrics:
+      receivers: [gpu]
+      exporters: [otlp]
