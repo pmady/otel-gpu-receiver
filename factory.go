@@ -6,8 +6,8 @@ import (
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/consumer"
 	"go.opentelemetry.io/collector/receiver"
-	"go.opentelemetry.io/collector/scraper/scraperhelper"
 	"go.opentelemetry.io/collector/scraper"
+	"go.opentelemetry.io/collector/scraper/scraperhelper"
 
 	"github.com/pmady/otel-gpu-receiver/internal/nvml"
 )
@@ -51,7 +51,7 @@ func createMetricsReceiverFunc(nvmlClient nvml.Interface) receiver.CreateMetrics
 			&gpuCfg.ControllerConfig,
 			settings,
 			nextConsumer,
-			scraperhelper.AddScraper(typeStr, gpuScraper),
+			scraperhelper.AddMetricsScraper(typeStr, gpuScraper),
 		)
 	}
 }

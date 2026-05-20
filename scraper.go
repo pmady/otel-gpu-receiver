@@ -14,9 +14,9 @@ import (
 )
 
 type gpuScraper struct {
-	logger  *zap.Logger
-	config  *Config
-	nvml    nvml.Interface
+	logger *zap.Logger
+	config *Config
+	nvml   nvml.Interface
 }
 
 func newGPUScraper(settings component.TelemetrySettings, cfg *Config, nvmlClient nvml.Interface) *gpuScraper {
