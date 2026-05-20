@@ -1,6 +1,6 @@
 # Contributing to GPU Receiver for OpenTelemetry Collector
 
-We welcome contributions! This document outlines the process for contributing to this project.
+Thanks for considering a contribution. Here's how to get started.
 
 ## Getting Started
 
